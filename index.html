@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>Kártyaválasztó</title>
+
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f4f4f4;
+text-align: center;
+padding: 20px;
+}
+
+input {
+font-size: 20px;
+padding: 10px;
+width: 300px;
+text-align: center;
+}
+
+button {
+font-size: 20px;
+padding: 10px 20px;
+margin-left: 10px;
+cursor: pointer;
+}
+
+#cards {
+margin-top: 30px;
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+#cards img {
+width: 220px;
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<h1>Választott kártyák</h1>
+
+<p>Írd be a 4 számot (1–80), vesszővel elválasztva</p>
+
+<input id="numbers" placeholder="pl. 7,23,41,68">
+<button onclick="mutat()">Mutat</button>
+
+<div id="cards"></div>
+
+<script>
+function mutat() {
+const input = document.getElementById("numbers").value;
+const nums = input.split(",");
+const div = document.getElementById("cards");
+
+div.innerHTML = "";
+
+if (nums.length !== 4) {
+alert("Pontosan 4 számot adj meg!");
+return;
+}
+
+nums.forEach(n => {
+const num = n.trim();
+
+if (num < 1 || num > 80 || isNaN(num)) {
+alert("Csak 1 és 80 közötti számok lehetnek!");
+div.innerHTML = "";
+return;
+}
+
+const img = document.createElement("img");
+img.src = "kepek/" + num + ".jpg";
+div.appendChild(img);
+});
+}
+</script>
+
+</body>
+</html>
