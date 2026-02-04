@@ -45,7 +45,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.3);
 
 <h1>Választott kártyák</h1>
 
-<p>Írd be a 4 számot (1–80), vesszővel elválasztva</p>
+<p>Írd be a 4 számot (1–88), vesszővel elválasztva</p>
 
 <input id="numbers" placeholder="pl. 7,23,41,68">
 <button onclick="mutat()">Mutat</button>
@@ -68,8 +68,8 @@ return;
 nums.forEach(n => {
 const num = n.trim();
 
-if (num < 1 || num > 80 || isNaN(num)) {
-alert("Csak 1 és 80 közötti számok lehetnek!");
+if (num < 1 || num > 88 || isNaN(num)) {
+alert("Csak 1 és 88 közötti számok lehetnek!");
 div.innerHTML = "";
 return;
 }
